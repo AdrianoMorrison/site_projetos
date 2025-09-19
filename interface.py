@@ -7,6 +7,27 @@ st.set_page_config(
     layout="wide"
 )
 
+# Esconde menu, header, footer e botões do shell do Streamlit Cloud (Fork/GitHub)
+st.markdown("""
+<style>
+/* Menu (três pontinhos) e header */
+#MainMenu {visibility: hidden;}
+header {visibility: hidden;}
+
+/* Footer padrão ("Made with Streamlit") */
+footer {visibility: hidden;}
+
+/* Toolbar/topo do Streamlit Cloud (inclui botão Fork/GitHub) */
+[data-testid="stToolbar"] {visibility: hidden; height: 0; position: fixed;}
+
+/* Banner da barra superior em alguns temas/deploys */
+.stApp [data-testid="stHeader"] {display: none;}
+
+/* Rodapé alternativo usado em versões recentes */
+.stApp [data-testid="baseLinkButton-footer"] {display: none;}
+</style>
+""", unsafe_allow_html=True)
+
 # ====== CONFIGURE AQUI (SUBSTITUA PELAS SUAS URLs) ======
 URL_WMS = "https://projetos-logistica.app.n8n.cloud/webhook/cadastro-usuarios"     # TODO: link GET do formulário de Cadastro de Usuário WMS
 URL_LOCAL = "https://projetos-logistica.app.n8n.cloud/webhook/localizacao" # TODO: link GET do formulário de Cadastro de Localização
