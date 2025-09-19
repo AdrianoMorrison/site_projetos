@@ -1,11 +1,21 @@
 # app.py
 import streamlit as st
+import os
+from PIL import Image
 
 st.set_page_config(
     page_title="Portal Logística – Cadastros",
     page_icon="🧭",
     layout="wide"
 )
+
+
+# caminho relativo para o logo
+logo_path = os.path.join("assets", "logo.png")
+
+# exibir no topo
+st.image(logo_path, width=180)  # ajuste o width conforme quiser
+
 
 # Esconde menu, header, footer e botões do shell do Streamlit Cloud (Fork/GitHub)
 st.markdown("""
